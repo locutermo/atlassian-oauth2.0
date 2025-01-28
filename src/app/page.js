@@ -6,13 +6,16 @@ export default function Home() {
 
   const handleAuth = () => {
     const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
-    
+    console.log("Frontend",{
+      vercel_url: process.env.VERCEL_URL,
+      vercel_env: process.env.VERCEL_ENV,
+    })
     const stateValue = 'VALOR_UNICO';
     const authorizationUrl =
       `https://auth.atlassian.com/authorize?audience=api.atlassian.com` +
       `&client_id=${clientId}` +
       `&scope=read%3Ajira-work` +
-      `&redirect_uri=${encodeURIComponent("http://localhost:3000/api/atlassian/callback")}` +
+      `&redirect_uri=${encodeURIComponent(process.env.VERCEL_ENV === "development" ? "http://localhost:3000": process.env.VERCEL_URL + process.env.NEXT_PUBLIC_REDIRECT_ENDPOINT)}` +
       `&state=${encodeURIComponent(stateValue)}` +
       `&response_type=code` +
       `&prompt=consent`;
