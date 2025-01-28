@@ -6,7 +6,6 @@ export default function Home() {
 
   const handleAuth = () => {
     const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
-    const redirectUri = encodeURIComponent(process.env.REDIRECT_URI);
     // NOTA: process.env.REDIRECT_URI no es "NEXT_PUBLIC", 
     // así que vendrá indefinido en el cliente. 
     // Si quisieras usar la misma en el frontend, tendrías que duplicarla 
@@ -25,7 +24,8 @@ export default function Home() {
       `&prompt=consent`;
 
     // Redirige al usuario a la ventana de Atlassian
-    window.location.href = authorizationUrl;
+
+    router.push(authorizationUrl)
   };
 
   return (

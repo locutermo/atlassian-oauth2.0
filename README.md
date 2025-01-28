@@ -20,6 +20,10 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Create 3rth Party App 
+
+Open [Developer Console](https://developer.atlassian.com/console/myapps/) and create your Oauth2.0 Integration App following this steps:
+
 ## How to use Oauth2.0 3rth Party
 Read this:  https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/#authcode
 
