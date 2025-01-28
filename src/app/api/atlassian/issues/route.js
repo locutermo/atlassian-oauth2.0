@@ -1,24 +1,18 @@
 import { NextResponse } from 'next/server';
 import axios from 'axios';
+import { cookies } from 'next/headers'
 
 export async function GET(request) {
   // 1. Obtener la cookie con el token
-  const cookieHeader = request.headers.get('cookie') || '';
+  const cookieStore = await cookies()
+  const atlToken = cookieStore.get('atl_token').value
   const searchParams = request.nextUrl.searchParams
   const cloudId = searchParams.get('cloud_id')
-  const tokenMatch = cookieHeader
-    .split(';')
-    .map(v => v.trim())
-    .find(v => v.startsWith('atl_token='));
-
-  if (!tokenMatch) {
+  if (!atlToken) {
     return NextResponse.json({ error: 'No se encontró el token en cookies' }, { status: 401 });
   }
 
-  const atlToken = tokenMatch.split('=')[1];
-
   try {
-
     
     const url = `https://api.atlassian.com/ex/jira/${cloudId}/rest/api/3/search?maxResults=1`;
 
