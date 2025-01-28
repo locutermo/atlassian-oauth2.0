@@ -12,11 +12,6 @@ export async function GET(request) {
     return NextResponse.json({ error: 'No se encontró el parámetro "code"' }, { status: 400 });
   }
 
-  console.log("backend",{
-    vercel_url: process.env.VERCEL_URL,
-    vercel_env: process.env.VERCEL_ENV,
-  })
-
   try {
     // 2. Intercambiar el code por el token en Atlassian
     const tokenResponse = await axios.post(
@@ -26,7 +21,7 @@ export async function GET(request) {
         client_id: process.env.NEXT_PUBLIC_CLIENT_ID,
         client_secret: process.env.CLIENT_SECRET,
         code,
-        redirect_uri: process.env.VERCEL_ENV === "development" ? "http://localhost:3000": process.env.VERCEL_URL + process.env.NEXT_PUBLIC_REDIRECT_ENDPOINT,
+        redirect_uri: process.env.NEXT_PUBLIC_REDIRECT_URI,
       },
       {
         headers: { 'Content-Type': 'application/json' },
