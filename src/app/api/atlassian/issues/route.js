@@ -5,7 +5,7 @@ import { cookies } from 'next/headers'
 export async function GET(request) {
   // 1. Obtener la cookie con el token
   const cookieStore = await cookies()
-  const atlToken = cookieStore.get('atl_token').value
+  const atlToken = cookieStore.get('atl_token')?.value
   const searchParams = request.nextUrl.searchParams
   const cloudId = searchParams.get('cloud_id')
   if (!atlToken) {

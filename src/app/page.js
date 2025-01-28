@@ -6,14 +6,8 @@ export default function Home() {
 
   const handleAuth = () => {
     const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
-    // NOTA: process.env.REDIRECT_URI no es "NEXT_PUBLIC", 
-    // así que vendrá indefinido en el cliente. 
-    // Si quisieras usar la misma en el frontend, tendrías que duplicarla 
-    // como NEXT_PUBLIC_REDIRECT_URI o construir la URL manualmente.
-
-    const stateValue = 'VALOR_UNICO'; // Podrías generar un estado dinámico.
-
-    // Arma la URL de autorización
+    
+    const stateValue = 'VALOR_UNICO';
     const authorizationUrl =
       `https://auth.atlassian.com/authorize?audience=api.atlassian.com` +
       `&client_id=${clientId}` +
@@ -22,8 +16,6 @@ export default function Home() {
       `&state=${encodeURIComponent(stateValue)}` +
       `&response_type=code` +
       `&prompt=consent`;
-
-    // Redirige al usuario a la ventana de Atlassian
 
     router.push(authorizationUrl)
   };

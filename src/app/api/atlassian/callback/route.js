@@ -32,7 +32,6 @@ export async function GET(request) {
 
     // 3. Guardar el token en una cookie HTTP-only (más seguro)
     const response = NextResponse.redirect(new URL('/dashboard', request.url)); 
-    console.log({access_token})
     cookieStore.set({
       name: 'atl_token',
       value: access_token,
