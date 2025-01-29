@@ -24,6 +24,14 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 Open [Developer Console](https://developer.atlassian.com/console/myapps/) and create your Oauth2.0 Integration App following this steps:
 
+```
+NEXT_PUBLIC_CLIENT_ID=***********
+CLIENT_SECRET=***********
+NEXT_PUBLIC_REDIRECT_URI=http://localhost:3000/api/atlassian/callback
+```
+
+CLIENT_ID and CLIENT_SECRET are obtained from the developer console after creating the app
+
 ## How to use Oauth2.0 3rth Party
 Read this:  https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/#authcode
 
