@@ -18,13 +18,13 @@ export default function Home() {
 
     router.push(authorizationUrl)
   };
-  
+
   return (
     <div className='min-w-full min-h-screen flex items-center justify-center'>
       <div className="flex flex-col gap-4 text-center">
-        <h1>Atlassian OAuth 2.0 con Next.js</h1>
+        <h1>Atlassian OAuth 2.0 (3LO)</h1>
         <button onClick={handleAuth} className="border-2 p-4 rounded-xl hover:font-extrabold">
-          Iniciar autenticación con Atlassian
+          Log in with Atlassian
         </button>
       </div>
     </div>

@@ -26,7 +26,7 @@ export default function Dashboard() {
                 <h2>Home</h2>
                 {
                     resources && (<>
-                        <h3>Recursos disponibles con mi token</h3>
+                        <h3>Sites available with my token</h3>
                         <pre>{JSON.stringify(resources, null, 2)}</pre>
                     </>)
                 }
@@ -37,7 +37,7 @@ export default function Dashboard() {
                         {resources && (
                             resources.map((resource, index) => (
                                 <div key={index}>
-                                    <button onClick={() => { getIssues(resource) }} className="border-2 p-4 rounded-xl hover:font-extrabold"> Obtener issues de {resource.url}</button>
+                                    <button onClick={() => { getIssues(resource) }} className="border-2 p-4 rounded-xl hover:font-extrabold">Click to get issues from {resource.url}</button>
                                     {issues && (
                                         <pre>{JSON.stringify(issues[resource.id], null, 2)}</pre>
                                     )}
