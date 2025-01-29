@@ -26,6 +26,7 @@ export default function Home() {
         <button onClick={handleAuth} className="border-2 p-4 rounded-xl hover:font-extrabold">
           Log in with Atlassian
         </button>
+        <a href="https://github.com/locutermo/atlassian-oauth2.0/">Click to view code</a>
       </div>
     </div>
   );
